@@ -42,7 +42,7 @@ public class BeanTemplate {
     public void handleLogic()
     {
         performSomeBusinessLogic();
-        LOG.info(Thread.currentThread().getName() + " Done some logic in bean with name , instance=" + this.name );
+        LOG.info(Thread.currentThread().getName() + " Done some logic in bean with name=" + this.name );
     }
 
     private void performSomeBusinessLogic() {

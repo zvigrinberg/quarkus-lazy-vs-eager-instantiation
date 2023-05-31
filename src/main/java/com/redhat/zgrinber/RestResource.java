@@ -1,6 +1,7 @@
 package com.redhat.zgrinber;
 
 import io.quarkus.runtime.Startup;
+import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -9,6 +10,7 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import org.jboss.logging.Logger;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -21,6 +23,7 @@ import java.util.stream.Collectors;
 @Path("/hello")
 public class RestResource {
 
+    private static final Logger LOG = Logger.getLogger(RestResource.class);
     @Inject
     @Named("bean1")
     private BeanTemplate bean1;
@@ -107,5 +110,11 @@ public class RestResource {
 
     private static String returnError(String beanName) {
         return "couldn't found the bean you wanted, bean=" + beanName + " doesn't exists";
+    }
+
+    @PostConstruct
+    public void doSomethingWhenCreated()
+    {
+        LOG.info("Created Rest Resource Bean Eagerly And Injected all Bean1...Bean16");
     }
 }
