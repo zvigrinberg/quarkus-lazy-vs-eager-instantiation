@@ -1,0 +1,1 @@
+# quarkus-lazy-vs-eager-instantiation
