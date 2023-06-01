@@ -144,6 +144,7 @@ sed --in-place 's/@ApplicationScoped/@Singleton/g'  src/main/java/com/redhat/zgr
 sed --in-place 's/import jakarta.enterprise.context.ApplicationScoped;/import jakarta.inject.Singleton;/g'  src/main/java/com/redhat/zgrinber/BeansDefinitions.java
 ```
 We changed the Scope annotation of all beans from `@ApplicationScoped` to `@Singleton`, This will cause the creation of the beans once injected somewhere in the application, in our case , in the `RestResource` Bean, which is loaded on startup, so they expected to be created and loaded on startup as well.
+
 7. Now with this change at hands, let's start a maven build once again to create an application JAR file
 ```shell
 mvn package
