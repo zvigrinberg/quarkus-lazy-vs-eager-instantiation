@@ -135,7 +135,7 @@ __  ____  __  _____   ___  __ ____  ______
 2023-06-01 12:51:34,053 INFO  [com.red.zgr.BeanTemplate] (executor-thread-1) Successfully created Bean of type BeanTemplate, with name = bean16 , after 200 ms 
 2023-06-01 12:51:34,053 INFO  [com.red.zgr.BeanTemplate] (executor-thread-1) executor-thread-1 Done some logic in bean with name=bean16
 ```
-Note: So when we invoked a method on each of the bean, then the framework created the bean, and only then the method invoked, this is called lazily loaded ( bean only created when it needed )  
+Note: So when we invoked a method on each of the bean, then the framework created the bean, and only then the method invoked, this is called lazily loaded ( bean only created when it first needed )  
 
 5. Now quit the application (press CTRL+C )
 6. Let's change all 16 custom beans to be eagerly loaded( loaded when injected by client classes/beans that created at startup ), we will do all of that with 2 `sed` commands:
